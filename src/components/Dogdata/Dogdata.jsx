@@ -131,7 +131,7 @@ function Dogdata() {
                 <Link to="/searchDog">
                   <div className="inamoTalaga">
                     <div className="inamoBox mt-5">
-                      <button className="btn btn-warning inamo">Go Back</button>
+                      <button className="btn btn-warning inamo">Search Other Dogs</button>
                     </div>
                   </div>
                 </Link>

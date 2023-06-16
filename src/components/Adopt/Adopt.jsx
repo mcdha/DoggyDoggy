@@ -71,29 +71,56 @@ import { Link } from 'react-router-dom';
           <p>Visit your chosen pet to confirm your choice</p>
           <p>Wait for vet clearance and schedule pick up</p>
           <p>Take your pet home!</p>
-          {/* <Link to='/appinfo'>
-            <button className='btn btn-warning'>Apply Now</button> 
-          </Link> */}
-          <h1>Adopt Now</h1>
+          <a href="#adopt"><button className='btn btn-warning'>Adopt Now!</button></a>
         </div>
       </div>
 
     
       <div className="col-6">
-     
-        <div className="col-12">
-        <div className="imgBox">
-          <img className='imgs' src="Images/AdoptImages/d1.jpg" alt=""/>
+        <div className="row mt-5">
+         <div className="col-6 mb-3">
+         <div className="imgBox">
+          <img className='imgs' src="Images/AdoptImages/d16.jpg" alt=""/>
         </div>
+         </div>
+         <div className="col-3 mb-3">
+         <div className="imgBox">
+          <img className='imgs' src="Images/AdoptImages/d15.jpg" alt=""/>
         </div>
-     
-        <div className="col-4">
-        <div className="imgBox">
-          <img className='imgs' src="Images/AdoptImages/d1.jpg" alt=""/>
+         </div>
+         <div className="col-3 mb-3">
+         <div className="imgBox">
+          <img className='imgs' src="Images/AdoptImages/d14.jpg" alt=""/>
         </div>
+         </div>
+         <div className="col-2">
+         <div className="imgBox">
+          <img className='imgs' src="Images/AdoptImages/d12.jpg" alt=""/>
         </div>
-      
-      </div>
+         </div>
+         <div className="col-2">
+         <div className="imgBox">
+          <img className='imgs' src="Images/AdoptImages/d11.jpg" alt=""/>
+        </div>
+         </div>
+         <div className="col-2">
+         <div className="imgBox">
+          <img className='imgs' src="Images/AdoptImages/d10.jpg" alt=""/>
+        </div>
+         </div>
+         <div className="col-3">
+         <div className="imgBox">
+          <img className='imgs' src="Images/AdoptImages/d9.jpg" alt=""/>
+        </div>
+         </div>
+         <div className="col-3">
+         <div className="imgBox">
+          <img className='imgs' src="Images/AdoptImages/d8.jpg" alt=""/>
+        </div>
+         </div>
+         
+          </div>
+        </div>
     
 
 
@@ -110,7 +137,7 @@ import { Link } from 'react-router-dom';
 
 
  
-    <div className="container">
+    <div id='adopt' className="container">
       <section>
       <div className="row">
           <h3 className='available d-flex justify-content-center my-5'><span style={{color: 'rgba(252,176,66,255)'}}>Available &nbsp;</span> Dogs</h3>
