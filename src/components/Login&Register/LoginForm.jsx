@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/database';
 
 const LoginForm = ({ onRegisterClick }) => {
   const [email, setEmail] = useState('');
@@ -14,15 +17,34 @@ const LoginForm = ({ onRegisterClick }) => {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   // Add your login logic here
+  //   console.log('Email:', email);
+  //   console.log('Password:', password);
+  //   // Reset the form
+  //   setEmail('');
+  //   setPassword('');
+  // };
+  
+  
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add your login logic here
-    console.log('Email:', email);
-    console.log('Password:', password);
-    // Reset the form
-    setEmail('');
-    setPassword('');
-  };
+		try {
+		await firebase.auth().signInWithEmailAndPassword(email, password);
+		// navigate('/');
+		} catch (error) {
+			Swal.fire({
+				icon: 'error',
+				title: 'Oops...',
+				text: error,
+				footer: '<a href="">Why do I have this issue?</a>'
+			})
+		}
+	};
+
+
+
 
   return (
     <div className="container mt-5 p-5" style={{width:'40%'}} >

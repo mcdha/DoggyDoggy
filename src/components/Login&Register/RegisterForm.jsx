@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/database';
+import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from 'firebase/auth';
+
 
 const RegisterForm = () => {
   const [name, setName] = useState('');
@@ -18,17 +23,45 @@ const RegisterForm = () => {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   // Add your registration logic here
+  //   console.log('Name:', name);
+  //   console.log('Email:', email);
+  //   console.log('Password:', password);
+  //   // Reset the form
+  //   setName('');
+  //   setEmail('');
+  //   setPassword('');
+  
+  // };
+  
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add your registration logic here
-    console.log('Name:', name);
-    console.log('Email:', email);
-    console.log('Password:', password);
-    // Reset the form
-    setName('');
-    setEmail('');
-    setPassword('');
-  };
+    try {
+      console.log(email,password)
+    await firebase.auth().createUserWithEmailAndPassword(email, password);
+    const userId = firebase.auth().currentUser.uid;
+    console.log(userId)
+    const userRef = firebase.database().ref(`users/${userId}`);
+    userRef.set({ 
+        name,
+        email,
+    });
+
+} catch (error) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: error,
+            footer: '<a href="">Why do I have this issue?</a>'
+        })
+    }
+};
+
+
+
+
 
   return (
 

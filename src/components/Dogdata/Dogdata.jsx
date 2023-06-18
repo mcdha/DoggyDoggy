@@ -106,7 +106,7 @@ function Dogdata() {
               
               <div className="col-md-6">
                 <div className="amen">
-                <div className="row thumbnail-gallery">
+                <div className="row thumbnail-galleryDogdata">
                   {breedImages.slice(0, 12).map((image, index) => (
                     <div className="col-4 mb-2" key={index}>
                       <img
