@@ -1,11 +1,10 @@
     import React from 'react'
-
+    
     function Testimonials() {
     return (
         <div className="container my-5">
         
     <div id="carouselMultiItemExample" className="carousel slide carousel-dark text-center" data-mdb-ride="carousel">
-
     <div className="d-flex justify-content-center mb-4">
         <button className="carousel-control-prev position-relative" type="button"
         data-mdb-target="#carouselMultiItemExample" data-mdb-slide="prev">
@@ -92,7 +91,7 @@
             <div className="row">
             <div className="col-lg-4">
                 <img className="rounded-circle shadow-1-strong mb-4"
-                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(3).webp" alt="avatar"
+                src="" alt="avatar"
                 style={{width: '150px'}} />
                 <h5 className="mb-3">John Doe</h5>
                 <p>UX Designer</p>
@@ -112,7 +111,7 @@
 
             <div className="col-lg-4 d-none d-lg-block">
                 <img className="rounded-circle shadow-1-strong mb-4"
-                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(4).webp" alt="avatar"
+                src="" alt="avatar"
                 style={{width: '150px'}} />
                 <h5 className="mb-3">Alex Rey</h5>
                 <p>Web Developer</p>
@@ -134,7 +133,7 @@
 
             <div className="col-lg-4 d-none d-lg-block">
                 <img className="rounded-circle shadow-1-strong mb-4"
-                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(5).webp" alt="avatar"
+                src="" alt="avatar"
                 style={{width: '150px'}} />
                 <h5 className="mb-3">Maria Kate</h5>
                 <p>Photographer</p>
@@ -161,7 +160,7 @@
             <div className="row">
             <div className="col-lg-4">
                 <img className="rounded-circle shadow-1-strong mb-4"
-                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(6).webp" alt="avatar"
+                src="" alt="avatar"
                 style={{width: '150px'}} />
                 <h5 className="mb-3">Anna Deynah</h5>
                 <p>UX Designer</p>
@@ -181,7 +180,7 @@
 
             <div className="col-lg-4 d-none d-lg-block">
                 <img className="rounded-circle shadow-1-strong mb-4"
-                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(8).webp" alt="avatar"
+                src="" alt="avatar"
                 style={{width: '150px'}} />
                 <h5 className="mb-3">John Doe</h5>
                 <p>Web Developer</p>
@@ -203,7 +202,7 @@
 
             <div className="col-lg-4 d-none d-lg-block">
                 <img className="rounded-circle shadow-1-strong mb-4"
-                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(7).webp" alt="avatar"
+                src="" alt="avatar"
                 style={{width: '150px'}} />
                 <h5 className="mb-3">Maria Kate</h5>
                 <p>Photographer</p>
