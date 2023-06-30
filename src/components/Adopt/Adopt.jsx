@@ -4,7 +4,7 @@
 
 
     const Adopt = () => {
-
+      
       const [selectedDogName, setSelectedDogName] = useState('');
 
       let dognames = [
@@ -77,21 +77,21 @@
 
       <div className="col-md-6">
         <div className="row mt-5">
-          <div className="col-sm-6 mb-3">
+          <div className="col-sm-7 mb-3">
             <div className="imgBox">
               <img className='imgs' src="Images/AdoptImages/d16.jpg" alt="" />
             </div>
           </div>
-          <div className="col-sm-3 mb-3">
+          <div className="col-sm-5 mb-3">
             <div className="imgBox">
               <img className='imgs' src="Images/AdoptImages/d15.jpg" alt="" />
             </div>
           </div>
-          <div className="col-sm-3 mb-3">
+          {/* <div className="col-sm-3 mb-3">
             <div className="imgBox">
               <img className='imgs' src="Images/AdoptImages/d14.jpg" alt="" />
             </div>
-          </div>
+          </div> */}
           <div className="col-sm-2">
             <div className="imgBox">
               <img className='imgs' src="Images/AdoptImages/d12.jpg" alt="" />
@@ -126,7 +126,7 @@
 <div id='adopt' className="container">
   <section>
     <div className="row">
-      <h3 className='available d-flex justify-content-center my-5'><span style={{ color: 'rgba(252,176,66,255)' }}>Available &nbsp;</span> Dogs</h3>
+      
       <div className="col-12">
         <div className="row">
           {[...Array(4)].map((_, index1) => {

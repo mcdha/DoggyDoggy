@@ -64,6 +64,50 @@
   height: 90%;
 }
 
+@media (max-width: 767px) {
+  #dogsPicture {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .dogsPictureBox {
+    width: 100%;
+    height: 100%;
+  }
+
+  .digital, .Interesting {
+    text-align: center;
+  }
+
+  .homeBtnGet {
+    width: 90%;
+   margin-left: 5%;
+   margin-bottom: 1rem;
+  }
+
+  .homeBtnRead {
+    width: 90%;
+    margin-left: 5%;
+  }
+}
+
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+  color: #f0b41c;
+ background-color: #f0b41c63;
+ border-radius: 20%;
+ box-shadow: #f0b41c;
+ 
+}
+
+.carousel-control-next-icon {
+  margin-left: 50%;
+}
+
+.carousel-control-prev-icon {
+  margin-right: 50%;
+}
+
 /* ___________________________________________________________InterestingIcon */
 .Interesting {
   font-size: 3.5rem;
@@ -75,6 +119,8 @@
 .interestingIcons {
  width: 100%;
  height: 100%;
+ transition: all 0.3s ease;
+ animation: btn-pulse 1s infinite alternate;
 
 }
 
@@ -170,7 +216,35 @@ text-transform: uppercase;
 cursor:pointer;
 }
 
+.custom-input {
+  height: 40%;
+  width: 100%;
+  font-size: 1rem;
+}
 
+@media (max-width: 575.98px) {
+  .bg-custom {
+    margin: 0 !important;
+    padding: 0 !important;
+   text-align: center;
+  }
+
+  .btnfoot {
+    width: 100%;
+  }
+
+  .btnfoot1 {
+    width: 90%;
+  }
+}
+
+.nn {
+  width: 1.5rem;
+}
+
+.nn:hover {
+  transform: scale(2);
+}
 
 
 /* ________________________________________________________________Adopt */
@@ -206,7 +280,6 @@ font-size: 3rem;
 
 .row {
 padding-bottom: 50px;
-
 }
 
 .card {
@@ -254,11 +327,15 @@ margin-bottom: 5%;
   width: 100%;
   height: 100%;
   border-radius: 10%;
+  object-fit: cover;
 }
+
+
 
 .imgBox {
   width: 100%;
   height: 100%;
+  
 }
 
 /* ________________________________________________________About */
@@ -401,6 +478,7 @@ height: 600px;
 display: flex;
 justify-content: center;
 margin-top: 20px;
+
 }
 
 .thumbnail {
@@ -409,10 +487,12 @@ height: 100px;
 object-fit: cover;
 margin: 0 5px;
 cursor: pointer;
+
 }
 
 .thumbnail.active {
 border: 1px solid rgba(252,176,66,255);
+
 }
 
 .spanName1 {
@@ -472,7 +552,8 @@ height: 100%;
 width: 30%;
 }
 
-.grid-container {
+.grid-
+{
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
@@ -497,7 +578,11 @@ width: 30%;
 
 /* ______________________________________________________________________Map */
 
-#map { height: 180px; }
+/* #map { 
+
+  height: 50rem; 
+  width: 50rem;
+} */
 @import "~leaflet/dist/leaflet.css";
 .mapdog {
   z-index: 10;
@@ -526,6 +611,7 @@ width: 30%;
 
 .navibut {
 align-items: center;
+width: 90%;
 }
 
 .fa-car-rear {
@@ -537,9 +623,18 @@ align-items: center;
 }
 
 .locatee {
-  justify-content: center;
+ justify-content: center;
  display: flex;
 }
+
+.default {
+  width: 100%;
+}
+
+.default1 {
+  width: 100%;
+}
+
 /* ______________________Dogs map */
 
 .btn-warning {
@@ -635,4 +730,105 @@ align-items: center;
 }
 
 
-  
+
+@media (max-width: 768px) {
+  #map {
+    height: 300px;
+  }
+}
+
+
+/* swalfire effect */
+.text-yellow {
+  color: rgb(215, 7, 7);
+}
+.text-gray {
+  color: gray;
+}
+
+.text-green {
+  color: green;
+}
+
+.text-red {
+  color: red;
+}
+
+.notFound {
+ margin-top: 10%;
+}
+
+.haha {
+  font-size: 10rem;
+  font-weight: bolder;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.poker-game {
+  text-align: center;
+  padding: 20px;
+}
+
+.heading {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.start-button,
+.reset-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.player-hand {
+  margin: 20px 0;
+}
+
+.hand {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.card {
+  display: inline-block;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px 10px;
+  margin-right: 5px;
+}
+
+.winner {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+
+
+
+
+

@@ -11,7 +11,7 @@ function Navbar() {
   const [userData, setUserData] = useState(null);
   const [user] = useAuthState(firebase.auth());
   
-
+  
   useEffect(() => {
     if (user) {
       const userRef = firebase.database().ref(`users/${user.uid}`);
@@ -24,7 +24,14 @@ function Navbar() {
       });
     }
   }, [user]);
+  
+  const handleShelterMapClick = () => {
+    
+    navigate('/shelterMap');
+    window.location.reload();
+  };
 
+  
   const handleNavItemHover = () => {
     setLogoSrc('/Images/logoDog1.png');
   };
@@ -37,9 +44,17 @@ function Navbar() {
     try {
       await firebase.auth().signOut();
       Swal.fire({
-        icon: 'success',
-        text: 'Successfully Logout.',
+      icon: '',
+      imageUrl: '/Images/sad2.png',
+      imageWidth: 200,
+      imageHeight: 200,
+      imageAlt: 'Custom Image',
+      title: 'Successfully Log out',
+      customClass: {
+        title: 'text-red',
+      }
       });
+      navigate('/login');
     } catch (error) {
       Swal.fire({
         icon: 'error',
@@ -53,10 +68,10 @@ function Navbar() {
   const handleHomeClick = (e) => {
     const clickedLink = e.target.getAttribute('href');
   
-    if (!user && clickedLink !== '/searchDog' && clickedLink !== '/applicants') {
+    if (!user && clickedLink && isRestrictedPath !== '/searchDog' && clickedLink !== '/applicants') {
       e.preventDefault();
       navigate('/login');
-    } else if (!user && clickedLink !== '/about') {
+    } else if (!user && clickedLink && isRestrictedPath !== '/about') {
       navigate('/about');
     }
   };
@@ -174,6 +189,20 @@ function Navbar() {
                   <i className="fas fa-paw me-3 hvr-icon-buzz-out"></i>About
                 </Link>
               </li>
+
+              <li className="nav-item">
+                <Link
+                  className="nav-link me-5"
+                  to="/shelterMap"
+                  onMouseEnter={handleNavItemHover}
+                  onMouseLeave={handleNavItemLeave}
+                  onClick={handleShelterMapClick}
+                >
+                  <i className="fas fa-paw me-3 hvr-icon-buzz-out"></i>Shelter Map
+                </Link>
+              </li>
+
+
               <li className="nav-item">
                 <Link
                   className="nav-link me-5"
@@ -185,6 +214,7 @@ function Navbar() {
                   <i className="fas fa-paw me-3 hvr-icon-buzz-out"></i>Adopt a Dog
                 </Link>
               </li>
+
               <li className="nav-item">
                 <Link
                   className="nav-link me-5"
@@ -196,13 +226,14 @@ function Navbar() {
                   <i className="fas fa-paw me-3 hvr-icon-buzz-out"></i>Search a Dog
                 </Link>
               </li>
+
               <li className="nav-item">
                 <a
                   className="nav-link me-5"
                   href="#footer"
                   onMouseEnter={handleNavItemHover}
                   onMouseLeave={handleNavItemLeave}
-                  onClick={handleHomeClick}
+                  // onClick={handleHomeClick}
                 >
                   <i className="fas fa-paw me-3 hvr-icon-buzz-out"></i>Contact
                 </a>
@@ -215,7 +246,13 @@ function Navbar() {
                   aria-expanded="false"
                   className="nav-link me-5"
                 >
-                  {userData && userData.name}
+                              <span style={{
+                background: `linear-gradient(to right, black 40%, rgba(252,176,66,255) 60%)`,
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent'
+              }}>
+                {userData && userData.name}
+              </span>
                   <img
                     src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
                     className="rounded-circle ms-3"
