@@ -9,7 +9,7 @@ function NotFound() {
             <div className="row">
                 <div className=" d-flex justify-content-center align-content-center">
                     <div>
-                    <p className='haha'><span style={{ color: 'rgba(252,176,66,255)' }}>Not Found Baby</span>  Please Go Back!</p> 
+                    <p className='haha'><span style={{ color: 'rgba(252,176,66,255)' }}>Not Found Sandy</span>  Please Go Back!</p> 
                     </div>
                 </div> 
                     

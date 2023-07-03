@@ -759,7 +759,7 @@ width: 90%;
 }
 
 .haha {
-  font-size: 10rem;
+  font-size: 9rem;
   font-weight: bolder;
 }
 
@@ -827,6 +827,47 @@ width: 90%;
   margin-top: 20px;
 }
 
+/* ______________________________________________________________ChessGame */
+
+.chessboard {
+  display: inline-block;
+  margin: 20px;
+}
+
+.row {
+  display: flex;
+}
+
+.square {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  color: #000;
+  cursor: pointer;
+}
+
+.light {
+  background-color: #f0d9b5;
+}
+
+.dark {
+  background-color: #b58863;
+}
+
+.selected {
+  outline: 2px solid #ff0000;
+}
+
+.piece {
+  font-size: 48px;
+}
+
+.white {
+  color: #fff;
+}
 
 
 

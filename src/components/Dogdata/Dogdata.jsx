@@ -349,38 +349,42 @@ function Dogdata() {
     </div>
   </div>
   <div className="row justify-content-center">
-    {randomBreeds.slice(0, 3).map((breed, index) =>
-      breedImages.length > index + 13 ? (
-        <div
-          className={`col-lg-4 col-md-6 col-sm-12 mb-2 text-center ${index >= 3 ? 'mb-4' : ''}`}
-          key={index}
-        >
-          <img
-            src={breedImages[index + 13]}
-            alt={breed.name}
-            style={{ width: '100%', height: '300px', objectFit: 'cover' }}
-          />
-          <h3>{breed.name}</h3>
-          <p>{breed.description}</p>
-          <div className="mt-auto">
-            <Link
-              to={`/apprehome/${breed.name}`}
-              className="btn btn-warning" style={{width:'90%'}}
-              onClick={() => setSelectedDogName(breed.name)}
-            >
-              Rehome Me
-            </Link>
-          </div>
+  {randomBreeds.slice(0, 3).map((breed, index) =>
+    breedImages.length > index + 13 ? (
+      <div
+        className={`col-lg-4 col-md-6 col-sm-12 mb-2 text-center ${index >= 3 ? 'mb-4' : ''}`}
+        key={index}
+      >
+        <img
+          src={breedImages[index + 13]}
+          alt={breed.name}
+          style={{ width: '100%', height: '300px', objectFit: 'cover' }}
+        />
+        <h3>{breed.name}</h3>
+        <p>{breed.description}</p>
+        <div className="mt-auto">
+          <Link
+            to={`/apprehome/${breed.name}`}
+            className="btn btn-warning"
+            style={{ width: '90%' }}
+            onClick={() => setSelectedDogName(breed.name)}
+          >
+            Rehome Me
+          </Link>
         </div>
-      ) : null
-    )}
+      </div>
+    ) : null
+  )}
+  {breedImages.length <= 13 && (
+  <div className="text-center">
+    <h2> -:- No Dogs <span style={{ color: 'rgba(252, 176, 66, 1)' }}>Available -:-</span></h2>
   </div>
+  )}
+</div>
 </div>
     
-                   
     
     </div>
-    
   );
 }
 
