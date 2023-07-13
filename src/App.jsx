@@ -15,6 +15,7 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/database';
 import NotFound from './NotFound';
+import CustomCursor from './CustomCursor';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCLdmkJg3ZES8fqQ7bt7vT7B3LtyKivUEk",
@@ -51,6 +52,7 @@ firebase.initializeApp(firebaseConfig);
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <CustomCursor />
       </>
     );
   };

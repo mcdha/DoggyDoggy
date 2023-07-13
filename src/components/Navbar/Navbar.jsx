@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/database';
@@ -10,6 +10,12 @@ function Navbar() {
   const [logoSrc, setLogoSrc] = useState('/Images/logoDog.png');
   const [userData, setUserData] = useState(null);
   const [user] = useAuthState(firebase.auth());
+  const location = useLocation();
+  const isHomeClicked = location.pathname === '/home';
+  const isAboutClicked = location.pathname === '/about';
+  const isshelterMapClicked = location.pathname === '/shelterMap';
+  const isadoptDogClicked = location.pathname === '/applicants';
+  const issearchDogClicked = location.pathname === '/searchDog';
   
   
   useEffect(() => {
@@ -167,67 +173,61 @@ function Navbar() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link
-                  className="nav-link me-5"
-                  aria-current="page"
-                  to="/home"
-                  onMouseEnter={handleNavItemHover}
-                  onMouseLeave={handleNavItemLeave}
-                 
-                >
-                  <i className="fas fa-paw me-3"></i>Home
-                </Link>
+              <Link
+                className={`nav-link me-5 ${isHomeClicked ? 'homeclicked' : ''}`}
+                aria-current="page"
+                to="/home"
+              >
+                <i className={`fas fa-paw me-3 ${isHomeClicked ? 'homeclicked' : ''}`}></i>
+                Home
+              </Link>
               </li>
               <li className="nav-item">
-                <Link
-                  className="nav-link me-5"
-                  to="/about"
-                  onMouseEnter={handleNavItemHover}
-                  onMouseLeave={handleNavItemLeave}
-                  
-                >
-                  <i className="fas fa-paw me-3 hvr-icon-buzz-out"></i>About
-                </Link>
+              <Link
+                className={`nav-link me-5 ${isAboutClicked ? 'aboutclicked' : ''}`}
+                aria-current="page"
+                to="/about"
+              >
+                <i className={`fas fa-paw me-3 ${isAboutClicked ? 'aboutclicked' : ''}`}></i>
+                About
+              </Link>
               </li>
 
               <li className="nav-item">
-                <Link
-                  className="nav-link me-5"
-                  to="/shelterMap"
-                  onMouseEnter={handleNavItemHover}
-                  onMouseLeave={handleNavItemLeave}
-                  onClick={handleShelterMapClick}
-                >
-                  <i className="fas fa-paw me-3 hvr-icon-buzz-out"></i>Shelter Map
-                </Link>
+              <Link
+                className={`nav-link me-5 ${isshelterMapClicked ? 'shelterMapclicked' : ''}`}
+                aria-current="page"
+                to="/shelterMap"
+              >
+                <i className={`fas fa-paw me-3 ${isshelterMapClicked ? 'shelterMapclicked' : ''}`}></i>
+                Shelter Map
+              </Link>
               </li>
 
 
               <li className="nav-item">
-                <Link
-                  className="nav-link me-5"
-                  to="/applicants"
-                  onMouseEnter={handleNavItemHover}
-                  onMouseLeave={handleNavItemLeave}
-                  onClick={handleHomeClick}
-                >
-                  <i className="fas fa-paw me-3 hvr-icon-buzz-out"></i>Adopt a Dog
-                </Link>
+              <Link
+                className={`nav-link me-5 ${isadoptDogClicked ? 'adoptDogclicked' : ''}`}
+                aria-current="page"
+                to="/applicants"
+              >
+                <i className={`fas fa-paw me-3 ${isadoptDogClicked ? 'adoptDogclicked' : ''}`}></i>
+                Adopt a Dog
+              </Link>
               </li>
 
               <li className="nav-item">
-                <Link
-                  className="nav-link me-5"
-                  to="/searchDog"
-                  onMouseEnter={handleNavItemHover}
-                  onMouseLeave={handleNavItemLeave}
-                  onClick={handleHomeClick}
-                >
-                  <i className="fas fa-paw me-3 hvr-icon-buzz-out"></i>Search a Dog
-                </Link>
+              <Link
+                className={`nav-link me-5 ${issearchDogClicked ? 'searchDogclicked' : ''}`}
+                aria-current="page"
+                to="/searchDog"
+              >
+                <i className={`fas fa-paw me-3 ${issearchDogClicked ? 'searchDogclicked' : ''}`}></i>
+               Search a Dog
+              </Link>
               </li>
 
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <a
                   className="nav-link me-5"
                   href="#footer"
@@ -237,7 +237,7 @@ function Navbar() {
                 >
                   <i className="fas fa-paw me-3 hvr-icon-buzz-out"></i>Contact
                 </a>
-              </li>
+              </li> */}
             </ul>
             {user ? (
               <>

@@ -1,0 +1,10 @@
+.custom-cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background: url('C:\Users\User\OneDrive\Desktop\REACT\DogsWebsiteInfo\public\Images/paws 1.png') center center no-repeat; /* Set the custom image */
+    background-size: contain;
+    pointer-events: none;
+    z-index: 9999;
+  }
+  

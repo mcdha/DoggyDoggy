@@ -1,6 +1,24 @@
 /* _____________________________________________________Navbar */
 
 
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  /* z-index: -15; */
+}
+
+.homeclicked, .aboutclicked, .shelterMapclicked, .adoptDogclicked, .searchDogclicked {
+  .fa-paw {
+    color:rgba(252,176,66,255);
+    transform: scale(1.2);
+    animation-name: tada;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+transform: scale(1.2);
+}
+
 .fa-paw {
   color: #4f4f4f;
 }
@@ -157,8 +175,15 @@ background-color: #ae7d0374;
 }
 
 #imagelogo {
-width: 100%;
-height: 10%;
+  margin-top: 5.3%;
+  width: 100%;
+  height: 10%;
+}
+
+@media (max-width: 768px) {
+  #imagelogo {
+    margin-top: 18.5%;
+  }
 }
 
 /* .sige {
@@ -335,7 +360,6 @@ margin-bottom: 5%;
 .imgBox {
   width: 100%;
   height: 100%;
-  
 }
 
 /* ________________________________________________________About */
@@ -584,12 +608,14 @@ width: 30%;
   width: 50rem;
 } */
 @import "~leaflet/dist/leaflet.css";
+
 .mapdog {
-  z-index: 10;
+  z-index: -10;
 }
 
 #map {
   border-radius: 1rem;
+  z-index: -10;
 }
 
 .specialDog1 {

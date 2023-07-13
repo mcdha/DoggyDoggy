@@ -1,49 +1,23 @@
-  import React, { useEffect, useState } from 'react';
-  import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
+const Adopt = () => {
+  const [dogs, setDogs] = useState([]);
 
-
-    const Adopt = () => {
-      
-      const [selectedDogName, setSelectedDogName] = useState('');
-
-      let dognames = [
-        ['Emperador Light', 'If you are the type of dog owner that wants a 1-yr-old female Aspin that stays quiet at home, try to get to know Emperador Light.', 'Images/AdoptImages/d1.jpg'],
-        ['Emperador Double Light', 'He is a smart, trainable 1-yr-old Aspin who is still a bit skittish in unfamiliar surroundings. But just give him some time and love, and Emperador Double Light will show you his true.', 'Images/AdoptImages/d2.jpg'],
-        ['Fundador Light', 'Fundador Light is a highly energetic dog that needs time to bond with humans, being a 8-yr-old rescue that has been through rough times.', 'Images/AdoptImages/d3.jpg'],
-        ['Fundador Double Light', 'A 3-yr-old Aspin rescued from nearby Fatima College, Fundador Double Light is very friendly and social. She loves to wag her tail and she warms up to people easily.', 'Images/AdoptImages/d4.jpg'],
-        ['Delro', 'DeFriendly dog alert! Delro desperately needs a loving forever-human with a deep need for companionship. Delro smiles a lot, as she is a happy and cheerful pet.', 'Images/AdoptImages/d5.jpg'],
-        ['Banoi', 'When Banoi shows you her happy face, you will surely be won over with delight. A 5-yr-old Aspin rescued in Marikina City during typhoon Ulysees.', 'Images/AdoptImages/d6.jpg'],
-        ['Whitey', 'Whitey may have looked like a healthy and happy stray dog, but in truth, he was in great pain.', 'Images/AdoptImages/d7.jpg'],
-        ['Walter White', 'Walter White was not yet born when he was rescued. Thats right! His momma, Menchie, was rescued inside UP Campus when she was pregnant.', 'Images/AdoptImages/d8.jpg'],
-        ['Usagi', 'Usagi belongs to a litter of 5 puppies called the “Sailor Moon pups.” They were found wandering near the Manila Bay area during the lockdown in 2021.', 'Images/AdoptImages/d9.jpg'],
-        ['Haley', 'When Haley, a hit and run victim, was found underneath a parked car, our volunteer rescuers were unsure if she would make it. After being treated for her injuries, our shelter vet was unsure if she would walk again.', 'Images/AdoptImages/d10.jpg'],
-        ['Tina', 'There`s only one thing keeping this young, beautiful girl from being adopted, and that is her shy and skittish nature.', 'Images/AdoptImages/d11.jpg'],
-        ['Tali', 'If you look closely at her “before” photo, youll see a deep line around her neck that looks like a collar. That is in fact a deep laceration caused by a rope tightly wound around her neck.', 'Images/AdoptImages/d12.jpg'],
-        ['Santelmo', 'Santelmo was rescued with her mom, Miyuki, and 4 other newborn siblings in Sampaloc, Manila. Now, Santelmo is a good-looking boy, much larger than the average Aspin.', 'Images/AdoptImages/d13.jpg'],
-        ['Mamoru', 'Mamoru belongs to a litter of 5 puppies called the “Sailor Moon pups.” They were found wandering near the Manila Bay area during the lockdown in 2021.', 'Images/AdoptImages/d14.jpg'],
-        ['Hawthorn', 'Hawthorn was rescued in Project 8, Quezon City, hiding in someones garden. He was skittish and difficult to handle.', 'Images/AdoptImages/d15.jpg'],
-        ['Spider', 'Foggy is the last of his litter: nicknamed the Bad Weather Boys, after the inclement conditions under which they were rescued in Loyola Memorial Park.', 'Images/AdoptImages/d16.jpg'],
-    ];
-
-    const [randomNumber1, setRandomNumber1] = useState(null);
-    const [randomNumber2, setRandomNumber2] = useState(null);
-  
-
-    const randomizer = () => {
-      setRandomNumber1(Math.floor(Math.random() * dognames.length));
-      setRandomNumber2(Math.floor(Math.random() * dognames.length));
-      
+  useEffect(() => {
+    const fetchDogs = async () => {
+      try {
+        const response = await axios.get('https://specialdog.online/api/sample');
+        setDogs(response.data);
+      } catch (error) {
+        console.log('Error fetching dogs:', error.response);
+      }
     };
 
-    useEffect(() => {
-      if (randomNumber1 === null && randomNumber2 === null) {
-        randomizer();
-      } else if (randomNumber1 === randomNumber2) {
-        setRandomNumber2(prevNumber => (prevNumber + 1) % dognames.length);
-      }
-    }, [randomNumber1, randomNumber2]);
-
+    fetchDogs();
+  }, []);
+    
       return (
         <>
 
@@ -53,7 +27,7 @@
       <div className="col-md-6">
         <div className="Adopt">
           <h2 className="eto">
-            <span style={{ color: 'rgba(252,176,66,255)' }}>Adopt</span> a shelter dog
+            <span style={{ color: 'rgba(252,176,66,255)' }}>Adopt</span> a dog
           </h2>
           <p>
             Our adoptable cats and dogs are all spayed/neutered (kapon) and vaccinated. Because they lived a
@@ -75,7 +49,8 @@
         </div>
       </div>
 
-      <div className="col-md-6">
+    
+      <div className="col-md-6 d-none d-md-block">
         <div className="row mt-5">
           <div className="col-sm-7 mb-3">
             <div className="imgBox">
@@ -87,11 +62,7 @@
               <img className='imgs' src="Images/AdoptImages/d15.jpg" alt="" />
             </div>
           </div>
-          {/* <div className="col-sm-3 mb-3">
-            <div className="imgBox">
-              <img className='imgs' src="Images/AdoptImages/d14.jpg" alt="" />
-            </div>
-          </div> */}
+          
           <div className="col-sm-2">
             <div className="imgBox">
               <img className='imgs' src="Images/AdoptImages/d12.jpg" alt="" />
@@ -119,52 +90,46 @@
           </div>
         </div>
       </div>
+
     </div>
   </section>
 </div>
 
-<div id='adopt' className="container">
-  <section>
-    <div className="row">
-      
-      <div className="col-12">
-        <div className="row">
-          {[...Array(4)].map((_, index1) => {
-            return (
-              <div className="row" key={index1}>
-                {[...Array(4)].map((_, index2) => {
-                  const name = index1 === 0 ? index2 : index1 === 1 ? 5 + index2 : index1 === 2 ? 9 + index2 : 12 + index2;
-
-                  return (
-                    <div className="col-md-3 col-sm-6" key={index2}>
-                      <div className="card cardAdopt">
-                        <div className="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                          <img src={dognames[name][2]} className="img-fluid hvr-grow" alt="Dog" />
-                          <a href="#!">
-                            <div className="" style={{ backgroundColor: "rgba(251, 251, 251, 0.15)" }}></div>
-                          </a>
-                          <h5 className="card-title">{dognames[name][0]}</h5>
-                        </div>
-                        <div className="card-body">
-                          <p className="card-text">{dognames[name][1]}</p>
-                          <div className='AdoptLoop'>
-                            <Link to={`/appinfo/${dognames[name][0]}`} className="btn btn-warning AdoptLoopBtn" onClick={() => setSelectedDogName(dognames[name][0])}>
-                              Adopt Me
-                            </Link>
-                          </div>
+<div id="adopt" className="container">
+        <section>
+          <div className="row">
+            <div className="col-12">
+              <div className="row">
+                {dogs.map((dog, index) => (
+                  <div className="col-md-3 col-sm-6" key={index}>
+                    <div className="card cardAdopt">
+                      <div className="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                        <img src={dog.image} className="img-fluid hvr-grow" alt="Dog" />
+                        <a href="#!">
+                          <div className="" style={{ backgroundColor: "rgba(251, 251, 251, 0.15)" }}></div>
+                        </a>
+                        <h5 className="card-title">{dog.name}</h5>
+                      </div>
+                      <div className="card-body">
+                        <p className="card-text">{dog.description}</p>
+                        <div className="AdoptLoop">
+                          <Link
+                            to={`/appinfo/${dog.name}`}
+                            className="btn btn-warning AdoptLoopBtn"
+                            onClick={() => setSelectedDogName(dog.name)}
+                          >
+                            Adopt Me
+                          </Link>
                         </div>
                       </div>
                     </div>
-                  );
-                })}
+                  </div>
+                ))}
               </div>
-            );
-          })}
-        </div>
+            </div>
+          </div>
+        </section>
       </div>
-    </div>
-  </section>
-</div>
 
 <div className="container">
   <h3 className='py-5 faq d-flex justify-content-center'>Adoption &nbsp;<span style={{ color: 'rgba(252,176,66,255)' }}>FAQ</span></h3>
