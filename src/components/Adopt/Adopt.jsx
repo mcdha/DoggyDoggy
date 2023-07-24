@@ -17,7 +17,7 @@ const Adopt = () => {
       try {
         const response = await axios.get('https://specialdog.online/api/dogsinfo', config);
         setDogs(response.data);
-        console.log(response.data);
+        // console.log(response.data);
       } catch (error) {
         console.log('Error fetching dogs:', error.response);
       }

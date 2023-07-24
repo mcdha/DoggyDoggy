@@ -25,7 +25,7 @@ function Navbar() {
       userRef.on('value', (snapshot) => {
         const userData = snapshot.val();
         if (userData) {
-          console.log(userData);
+          // console.log(userData);
           setUserData(userData);
           setUserRole(userData.role);
         }

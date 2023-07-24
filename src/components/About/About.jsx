@@ -172,7 +172,7 @@ getInRef.current.scrollIntoView({ behavior: 'smooth' });
       </div>
     ))}
  {employees1.map((employee) => (
-      <div className=" col-sm-12 col-12 " key={employee.name1}>
+      <div className="col-12 " key={employee.name1}>
         <div className="profBox text-center">
           <div>
             <img className="gif my-5" src={employee.photo1} alt={employee.name1} />

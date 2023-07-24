@@ -5,14 +5,14 @@
         <div className="container my-5">
         
     <div id="carouselMultiItemExample" className="carousel slide carousel-dark text-center" data-mdb-ride="carousel">
-    <div class="d-flex justify-content-center mb-4">
-  <button class="carousel-control-prev" type="button" data-mdb-target="#carouselMultiItemExample" data-mdb-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
+    <div className="d-flex justify-content-center mb-4">
+  <button className="carousel-control-prev" type="button" data-mdb-target="#carouselMultiItemExample" data-mdb-slide="prev">
+    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span className="visually-hidden">Previous</span>
   </button>
-  <button class="carousel-control-next" type="button" data-mdb-target="#carouselMultiItemExample" data-mdb-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
+  <button className="carousel-control-next" type="button" data-mdb-target="#carouselMultiItemExample" data-mdb-slide="next">
+    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+    <span className="visually-hidden">Next</span>
   </button>
 </div>
     

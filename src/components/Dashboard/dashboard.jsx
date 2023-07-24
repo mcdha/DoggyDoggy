@@ -32,7 +32,7 @@ const Dashboard = () => {
         axios.get('https://specialdog.online/api/token')
         .then(response => {
             const token = response.data;
-            console.log(response.data)
+            // console.log(response.data)
             
             // Make a subsequent GET request to the API with the bearer token
             axios.get('https://specialdog.online/api/breeds', {
@@ -75,7 +75,7 @@ const Dashboard = () => {
             })
             .then((response) => {
                 setRehome(response.data);
-                console.log(response.data)
+                // console.log(response.data)
             })
             .catch((error) => console.error('Error fetching rehome', error));
 
@@ -199,8 +199,8 @@ const Dashboard = () => {
     // UPDATE DOG BREED
 
     const editDogBreed = (id, currentName) => {
-        console.log('Received breed ID:', id);
-        console.log('Current breed name:', currentName);
+        // console.log('Received breed ID:', id);
+        // console.log('Current breed name:', currentName);
         Swal.fire({
             title: 'Update Breed Name',
             html: `
@@ -221,7 +221,7 @@ const Dashboard = () => {
                 });
                 } else {
                 // Make the API call to update the breed name in your database
-                console.log('Breed ID to update:', id);
+                // console.log('Breed ID to update:', id);
 
                 axios.get('https://specialdog.online/api/token')
                     .then((response) => {
@@ -402,8 +402,8 @@ const Dashboard = () => {
     // UPDATE DOG DATA
 
     const editDogData = (id, currentName, currentDescription, currentAge, currentSex, currentBreedId, currentImgUrl) => {
-        console.log(id);
-        console.log(currentName);
+        // console.log(id);
+        // console.log(currentName);
         Swal.fire({
             title: 'Update Dog Data',
             html: `
@@ -442,7 +442,7 @@ const Dashboard = () => {
                 });
             } else {
                 // Make the API call to update the dog data in your database
-                console.log(' ID to update:', id);
+                // console.log(' ID to update:', id);
 
                 axios.get('https://specialdog.online/api/token')
                 .then((response) => {
@@ -543,112 +543,13 @@ const Dashboard = () => {
         });
     };
 
-    // ADD APPLICANTS INFORMATION
-
-    // const addAppInfo = () => {
-    //     // Show SweetAlert with input fields when the "Add Applicants Information" button is clicked
-    //     Swal.fire({
-    //         title: 'Add Applicant Information',
-    //         html: `
-    //             <div class="row">
-    //                 <div class="col-md-6">
-    //                 <input type="text" id="appInfoFirstName" class="swal2-input" placeholder="Enter First Name">
-    //                 <input type="text" id="appInfoLastName" class="swal2-input" placeholder="Enter Last Name">
-    //                 <input type="text" id="appInfoStreet" class="swal2-input" placeholder="Enter Street Address">
-    //                 <input type="text" id="appInfoCity" class="swal2-input" placeholder="Enter City Address">
-    //                 <input type="text" id="appInfoProvince" class="swal2-input" placeholder="Enter Province Address">
-    //                 <input type="number" id="appInfoPhoneNum" class="swal2-input" placeholder="Enter Phone number">
-    //                 <input type="text" id="appInfoEmail" class="swal2-input" placeholder="Enter Email">
-    //                 <input type="number" id="appInfoMonthInc" class="swal2-input" placeholder="Enter Monthly Income">
-    //                 <input type="text" id="appInfoDogName" class="swal2-input" placeholder="Enter Dog Name">
-    //                 <input type="number" id="appInfoZipcode" class="swal2-input" placeholder="Enter Zipcode">
-    //             </div>
-    //             <div class="col-md-6">
-    //                 <input type="text" id="appInfoStatus" class="swal2-input" placeholder="Enter Status">
-    //                 <input type="text" id="appInfoOccupation" class="swal2-input" placeholder="Enter Occupation">
-    //                 <input type="text" id="appInfoDogLover" class="swal2-input" placeholder="Are you a Dog lover?">
-    //                 <input type="text" id="appInfoPrompted" class="swal2-input" placeholder="What prompted you to adopt a Dog?">
-    //                 <input type="text" id="appInfoAdoptedBefore" class="swal2-input" placeholder="Have you adopted a Dog before">
-    //                 <input type="text" id="appInfoAltFirstName" class="swal2-input" placeholder="Alternate First name">
-    //                 <input type="text" id="appInfoAltLastName" class="swal2-input" placeholder="Alternate Last name">
-    //                 <input type="number" id="appInfoAltPhoneNum" class="swal2-input" placeholder="Alternate Phone number">
-    //                 <input type="text" id="appInfoAltEmail" class="swal2-input" placeholder="Alternate Email">
-    //             </div>
-    //         </div>
-    //         `,
-    //         icon: 'info',
-    //         showCancelButton: true,
-    //         confirmButtonText: 'Add Applicant Data',
-    //         cancelButtonText: 'Cancel',
-    //         }).then((result) => {
-    //         if (result.isConfirmed) {
-    //             const firstName = document.getElementById('appInfoFirstName').value;
-    //             const lastName = document.getElementById('appInfoLastName').value;
-    //             const street = document.getElementById('appInfoStreet').value;
-    //             const city = document.getElementById('appInfoCity').value;
-    //             const province = document.getElementById('appInfoProvince').value;
-    //             const phoneNum = document.getElementById('appInfoPhoneNum').value;
-    //             const email = document.getElementById('appInfoEmail').value;
-    //             const monthlyIncome = document.getElementById('appInfoMonthInc').value;
-    //             const dogName = document.getElementById('appInfoDogName').value;
-    //             const zipCode = document.getElementById('appInfoZipcode').value;
-    //             const status = document.getElementById('appInfoStatus').value;
-    //             const occupation = document.getElementById('appInfoOccupation').value;
-    //             const dogLover = document.getElementById('appInfoDogLover').value;
-    //             const prompted = document.getElementById('appInfoPrompted').value;
-    //             const adoptedBefore = document.getElementById('appInfoAdoptedBefore').value;                
-                
-        
-    //             // Perform validation for required fields (e.g., firstName, dogName)
-    //             if (!firstName.trim() || !dogName.trim()) {
-    //             // Show an error message if the required fields are empty
-    //             Swal.fire({
-    //                 title: 'Error',
-    //                 text: 'Please enter valid values for first name and dog name.',
-    //                 icon: 'error',
-    //             });
-    //             } else {
-    //             // Make the API call to add the applicant data to your database
-    //             axios
-    //                 .post('https://specialdog.online/api/applicants', {
-    //                 firstName: firstName,
-    //                 lastName: lastName,
-    //                 street: street,
-    //                 city: city,
-    //                 province: province,
-    //                 phoneNum: phoneNum,
-    //                 email: email,
-    //                 monthlyIncome: monthlyIncome,
-    //                 dogName: dogName,
-    //                 })
-    //                 .then((response) => {
-    //                 // If the request is successful, show a success message
-    //                 Swal.fire({
-    //                     title: 'Applicant Data Added!',
-    //                     text: `The applicant data for "${firstName}" has been added successfully.`,
-    //                     icon: 'success',
-    //                 });
-    //                 // Update the applicants state with the added applicant data
-    //                 setApplicants([...applicants, response.data]);
-    //                 })
-    //                 .catch((error) => {
-    //                 // If there's an error with the API call, show an error message
-    //                 Swal.fire({
-    //                     title: 'Error',
-    //                     text: 'Failed to add the applicant data. Please try again later.',
-    //                     icon: 'error',
-    //                 });
-    //                 });
-    //             }
-    //         }
-    //     });
-    // };
+    
 
     // UPDATE APPLICANTS INFORMATION
 
     const editAppInfo = (id, currentFirstName, currentLastName, currentStreet, currentCity, currentProvince, currentPhoneNum, currentEmail, currentMonthInc, currentDogName) => {
-        console.log(id);
-        console.log(currentFirstName);
+        // console.log(id);
+        // console.log(currentFirstName);
         
         // const [currentZipCode, setZipcode] = useState('');
         
@@ -691,12 +592,12 @@ const Dashboard = () => {
                 });
             } else {
                 // Make the API call to update the applicant data in your database
-                console.log('ID to update:', id);
+                // console.log('ID to update:', id);
 
                 axios.get('https://specialdog.online/api/token')
                 .then((response) => {
                     const token = response.data;
-                    console.log(firstName);
+                    // console.log(firstName);
                     
 
                     axios.put(`https://specialdog.online/api/applicants/${id}`, {
@@ -747,7 +648,7 @@ const Dashboard = () => {
     // DELETE APPLICANTS INFORMATION
 
     const deleteAppInfo = (id) => {
-        console.log(id);
+        // console.log(id);
         // Show SweetAlert confirmation before deleting the applicant data
         Swal.fire({
             title: 'Are you sure?',
@@ -886,8 +787,8 @@ const Dashboard = () => {
     // UPDATE REHOME DATA
 
     const editRehome = (id, currentFirstname, currentLastname, currentAddress, currentPhoneNumber, currentEmail, currentSocialMedia, currentSelectedDog) => {
-        console.log(id);
-        console.log(currentFirstname);
+        // console.log(id);
+        // console.log(currentFirstname);
         Swal.fire({
             title: 'Update Rehome Data',
             html: `
@@ -974,7 +875,7 @@ const Dashboard = () => {
     // DELETE REHOME DATA
 
     const deleteRehome = (id) => {
-        console.log(id);
+        // console.log(id);
         // Show SweetAlert confirmation before deleting the rehome data
         Swal.fire({
             title: 'Are you sure?',
