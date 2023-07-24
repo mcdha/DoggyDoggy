@@ -24,10 +24,19 @@ getInRef.current.scrollIntoView({ behavior: 'smooth' });
       name: 'Jay-r Palabrica San Mocte ',
       position: 'Dog Behaviorist',
       bio:
-        'Jay has a deep understanding of dog behavior and training techniques. She works closely with our adopters to ensure a smooth transition and provides guidance on dog training and socialization.',
+        'Jay has a deep understanding of dog behavior and training techniques. He works closely with our adopters to ensure a smooth transition and provides guidance on dog training and socialization.',
       photo: 'Videos/jay.gif',
     },
-    // Add more employees here
+  ];
+
+  const employees1 = [
+    {
+      name1: 'Efren Albert Rosales ',
+      position1: 'CEO',
+      bio1:
+        'As the CEO of our organization, Efren exemplifies a profound understanding of dog behavior and training techniques. Her expertise allows her to work closely with our valued adopters, ensuring a seamless transition for our dogs into their new homes. Efren takes pride in providing personalized guidance on dog training and socialization, empowering our adopters with the knowledge and tools they need to build strong and loving relationships with their new furry companions. With Efrens leadership, we are dedicated to creating a supportive and nurturing environment that fosters happy and well-adjusted dogs and delighted adopters.',
+      photo1: 'Videos/efren.png',
+    },
   ];
 
   return (
@@ -162,7 +171,21 @@ getInRef.current.scrollIntoView({ behavior: 'smooth' });
         </div>
       </div>
     ))}
+ {employees1.map((employee) => (
+      <div className=" col-sm-12 col-12 " key={employee.name1}>
+        <div className="profBox text-center">
+          <div>
+            <img className="gif my-5" src={employee.photo1} alt={employee.name1} />
+            <h3>{employee.name1}</h3>
+            <p>{employee.position1}</p>
+            <p>{employee.bio1}</p>
+          </div>
+        </div>
+      </div>
+    ))}
+
   </div>
+ 
 </div>
 
 
